@@ -35,14 +35,16 @@ async function getAll() {
     return await User.find();
 }
 
+// Función para obtener un registro de vacaciones por su ID
 async function getById(id) {
     return await User.findById(id);
 }
 
+// Función para crear un nuevo registro de vacaciones
 async function create(params) {
     // validate
-    if (await User.findOne({ username: params.username })) {
-        throw 'Username "' + params.username + '" is already taken';
+    if (await User.findOne({ name: params.name })) {
+        throw 'Username "' + params.name + '" is already taken';
     }
 
     const user = new User(params);
@@ -76,6 +78,7 @@ async function update(id, params) {
     await user.save();
 }
 
+// Función para eliminar un registro de vacaciones por su ID
 async function _delete(id) {
     await User.findByIdAndRemove(id);
 }

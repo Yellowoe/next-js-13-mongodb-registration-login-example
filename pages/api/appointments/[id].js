@@ -41,19 +41,7 @@ async function update(req, res) {
     res.status(200).json({});
 }
 
-// Función para eliminar una cita por su ID
-//async function _delete(req, res) {
-    // Obtener el ID de la cita desde la URL
-    //const appointmentId = req.query.id;
 
-    // Verificar que el ID sea válido
-
-        // Eliminar la cita utilizando el ID
-      //  await appointmentsRepo._delete(appointmentId);
-
-        // Responder con un código de estado 200 para indicar éxito
-       // res.status(200).json({});
-//}
 async function _delete(req, res) {
     await appointmentsRepo.delete(req.query.id);
     return res.status(200).json({});
